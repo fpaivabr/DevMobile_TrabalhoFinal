@@ -1,0 +1,46 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/txtTituloFeedback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Título do Feedback"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtTituloCardapio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtTituloFeedback"
+        android:layout_marginTop="8dp"
+        android:text="Título do Cardápio"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/txtDescricaoFeedback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtTituloCardapio"
+        android:layout_marginTop="16dp"
+        android:text="Descrição do Feedback" />
+
+    <Button
+        android:id="@+id/btnVoltar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtDescricaoFeedback"
+        android:layout_marginTop="16dp"
+        android:layout_alignParentStart="true"
+        android:text="Voltar" />
+
+    <include
+        layout="@layout/barra_navegacao_inferior"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
+
+</RelativeLayout>

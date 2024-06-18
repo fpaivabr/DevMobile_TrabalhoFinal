@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">AppFinal</string>
+    <string-array name="tipos_prato">
+        <item>Entrada</item>
+        <item>Prato Principal</item>
+        <item>Sobremesa</item>
+        <item>Bebida</item>
+    </string-array>
+</resources>

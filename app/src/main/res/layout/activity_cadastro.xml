@@ -1,0 +1,46 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/edtNomeUsuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nome" />
+
+    <EditText
+        android:id="@+id/edtSobrenomeUsuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edtNomeUsuario"
+        android:layout_marginTop="16dp"
+        android:hint="Sobrenome" />
+
+    <EditText
+        android:id="@+id/edtDescricaoUsuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edtSobrenomeUsuario"
+        android:layout_marginTop="16dp"
+        android:hint="Descrição" />
+
+    <EditText
+        android:id="@+id/edtSenhaUsuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edtDescricaoUsuario"
+        android:layout_marginTop="16dp"
+        android:hint="Senha"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/btnCadastrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edtSenhaUsuario"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        android:text="Cadastrar" />
+
+</RelativeLayout>

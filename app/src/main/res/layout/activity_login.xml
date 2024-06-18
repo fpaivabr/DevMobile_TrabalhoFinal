@@ -1,0 +1,40 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/edtLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Login" />
+
+    <EditText
+        android:id="@+id/edtSenha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edtLogin"
+        android:layout_marginTop="16dp"
+        android:hint="Senha"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/btnEntrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edtSenha"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        android:text="Entrar" />
+
+    <TextView
+        android:id="@+id/txtNaoPossuiCadastro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnEntrar"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        android:text="Não possui cadastro?"
+        android:textColor="@android:color/holo_blue_dark" />
+
+</RelativeLayout>

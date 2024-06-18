@@ -1,0 +1,30 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.fernandopaiva.appfinal">
+
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppFinal">
+
+        <activity android:name=".activity.LoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".activity.MainActivity" />
+        <activity android:name=".activity.ListaFeedbackActivity" />
+        <activity android:name=".activity.ListaFeedbackPendenteActivity" />
+        <activity android:name=".activity.ListaAfazeresActivity" />
+        <activity android:name=".activity.AfazeresActivity" />
+        <activity android:name=".activity.ListaConfiguracaoCardapioActivity" />
+        <activity android:name=".activity.ConfiguracaoCardapioActivity" />
+        <activity android:name=".activity.CadastroActivity" />
+
+    </application>
+
+</manifest>
