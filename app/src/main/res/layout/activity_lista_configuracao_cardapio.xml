@@ -56,6 +56,7 @@
         android:hint="Filtrar pelo título do prato" />
 
     <!-- ListView para mostrar pratos -->
+
     <ListView
         android:id="@+id/listaPratos"
         android:layout_width="match_parent"

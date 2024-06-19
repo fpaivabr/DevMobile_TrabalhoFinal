@@ -1,17 +1,15 @@
 package com.fernandopaiva.appfinal.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.fernandopaiva.appfinal.R;
 import com.fernandopaiva.appfinal.model.Atividade;
 import com.fernandopaiva.appfinal.service.ApiService;
 import com.fernandopaiva.appfinal.service.RetrofitClient;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -23,7 +21,6 @@ public class AfazeresActivity extends AppCompatActivity {
     private EditText edtAcao;
     private Button btnVoltar;
     private Button btnSalvarAcao;
-
     private Atividade atividade;
 
     @Override
@@ -38,11 +35,13 @@ public class AfazeresActivity extends AppCompatActivity {
         btnVoltar = findViewById(R.id.btnVoltar);
         btnSalvarAcao = findViewById(R.id.btnSalvarAcao);
 
+        setupBottomNavigation();
+
         atividade = (Atividade) getIntent().getSerializableExtra("atividade");
 
         if (atividade != null) {
             txtTituloAtividade.setText(atividade.getTituloAtividade());
-            txtFeedbackRelacionado.setText(atividade.getFeedbackTitulo());
+            txtFeedbackRelacionado.setText(atividade.getTituloFeedback());
             txtDescricaoAtividade.setText(atividade.getDescricaoAtividade());
         }
 
@@ -52,6 +51,14 @@ public class AfazeresActivity extends AppCompatActivity {
             String acao = edtAcao.getText().toString();
             salvarAcao(acao);
         });
+    }
+
+    private void setupBottomNavigation() {
+        findViewById(R.id.btnTodosFeedbacks).setOnClickListener(v -> startActivity(new Intent(this, ListaFeedbackActivity.class)));
+        findViewById(R.id.btnFeedbacksPendentes).setOnClickListener(v -> startActivity(new Intent(this, ListaFeedbackPendenteActivity.class)));
+        findViewById(R.id.btnListaAfazeres).setOnClickListener(v -> startActivity(new Intent(this, ListaAfazeresActivity.class)));
+        findViewById(R.id.btnConfiguracaoCardapio).setOnClickListener(v -> startActivity(new Intent(this, ListaConfiguracaoCardapioActivity.class)));
+        findViewById(R.id.btnHome).setOnClickListener(v -> startActivity(new Intent(this, MainActivity.class)));
     }
 
     private void salvarAcao(String acao) {

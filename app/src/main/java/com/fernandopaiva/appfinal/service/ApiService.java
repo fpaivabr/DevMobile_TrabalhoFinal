@@ -3,9 +3,7 @@ package com.fernandopaiva.appfinal.service;
 import com.fernandopaiva.appfinal.model.Feedback;
 import com.fernandopaiva.appfinal.model.Atividade;
 import com.fernandopaiva.appfinal.model.ItemCardapio;
-
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;

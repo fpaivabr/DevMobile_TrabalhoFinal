@@ -44,7 +44,7 @@ public class AtividadeAdapter extends BaseAdapter {
             convertView = LayoutInflater.from(context).inflate(R.layout.activity_afazeres, parent, false);
             holder = new ViewHolder();
             holder.txtTituloAtividade = convertView.findViewById(R.id.txtTituloAtividade);
-            holder.txtTituloFeedback = convertView.findViewById(R.id.txtTituloFeedback);
+            holder.txtTituloFeedback = convertView.findViewById(R.id.txtTituloCardapio);
             holder.txtDescricaoAtividade = convertView.findViewById(R.id.txtDescricaoAtividade);
             convertView.setTag(holder);
         } else {

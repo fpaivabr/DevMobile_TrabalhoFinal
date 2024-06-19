@@ -1,5 +1,6 @@
 package com.fernandopaiva.appfinal.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -46,6 +47,8 @@ public class ConfiguracaoCardapioActivity extends AppCompatActivity {
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, itemCardapioList);
         listaPratos.setAdapter(adapter);
 
+        setupBottomNavigation();
+
         btnAdicionarPrato.setOnClickListener(v -> {
             String titulo = edtTituloPrato.getText().toString();
             String descricao = edtDescricaoPrato.getText().toString();
@@ -68,6 +71,14 @@ public class ConfiguracaoCardapioActivity extends AppCompatActivity {
         });
 
         loadItemCardapio();
+    }
+
+    private void setupBottomNavigation() {
+        findViewById(R.id.btnTodosFeedbacks).setOnClickListener(v -> startActivity(new Intent(this, ListaFeedbackActivity.class)));
+        findViewById(R.id.btnFeedbacksPendentes).setOnClickListener(v -> startActivity(new Intent(this, ListaFeedbackPendenteActivity.class)));
+        findViewById(R.id.btnListaAfazeres).setOnClickListener(v -> startActivity(new Intent(this, ListaAfazeresActivity.class)));
+        findViewById(R.id.btnConfiguracaoCardapio).setOnClickListener(v -> startActivity(new Intent(this, ListaConfiguracaoCardapioActivity.class)));
+        findViewById(R.id.btnHome).setOnClickListener(v -> startActivity(new Intent(this, MainActivity.class)));
     }
 
     private void adicionarItemCardapio(ItemCardapio novoItem) {

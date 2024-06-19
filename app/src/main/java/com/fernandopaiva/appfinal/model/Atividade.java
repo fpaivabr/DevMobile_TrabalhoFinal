@@ -63,8 +63,7 @@ public class Atividade implements Serializable {
 
     // Método para obter o título do feedback relacionado
     public String getTituloFeedback() {
-        // Implementar a lógica para buscar o título do feedback a partir do feedbackI
+        // Implementar a lógica para buscar o título do feedback a partir do feedbackId
         return "Título do Feedback";
     }
-
 }

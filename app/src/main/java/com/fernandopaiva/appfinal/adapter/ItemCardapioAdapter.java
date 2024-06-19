@@ -6,19 +6,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-
 import com.fernandopaiva.appfinal.R;
 import com.fernandopaiva.appfinal.model.ItemCardapio;
-
 import java.util.List;
 
 public class ItemCardapioAdapter extends BaseAdapter {
-    private final Context context;
-    private List<ItemCardapio> itemCardapioList;
+    private final List<ItemCardapio> itemCardapioList;
+    private final LayoutInflater inflater;
 
     public ItemCardapioAdapter(Context context, List<ItemCardapio> itemCardapioList) {
-        this.context = context;
         this.itemCardapioList = itemCardapioList;
+        this.inflater = LayoutInflater.from(context);
     }
 
     @Override
@@ -40,29 +38,30 @@ public class ItemCardapioAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
         if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.activity_configuracao_cardapio, parent, false);
+            convertView = inflater.inflate(R.layout.activity_lista_configuracao_cardapio, parent, false);
             holder = new ViewHolder();
-            holder.txtTituloPrato = convertView.findViewById(R.id.txtTituloCardapio);
-            holder.txtDescricaoPrato = convertView.findViewById(R.id.txtDescricaoCardapio);
+            holder.txtTituloPrato = convertView.findViewById(R.id.edtTituloPrato);
+            holder.txtDescricaoPrato = convertView.findViewById(R.id.edtDescricaoPrato);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        ItemCardapio itemCardapio = itemCardapioList.get(position);
-        holder.txtTituloPrato.setText(itemCardapio.getTitulo());
-        holder.txtDescricaoPrato.setText(itemCardapio.getDescricao());
+        ItemCardapio item = itemCardapioList.get(position);
+        holder.txtTituloPrato.setText(item.getTitulo());
+        holder.txtDescricaoPrato.setText(item.getDescricao());
 
         return convertView;
-    }
-
-    public void updateList(List<ItemCardapio> newList) {
-        itemCardapioList = newList;
-        notifyDataSetChanged();
     }
 
     static class ViewHolder {
         TextView txtTituloPrato;
         TextView txtDescricaoPrato;
+    }
+
+    public void updateList(List<ItemCardapio> newList) {
+        itemCardapioList.clear();
+        itemCardapioList.addAll(newList);
+        notifyDataSetChanged();
     }
 }

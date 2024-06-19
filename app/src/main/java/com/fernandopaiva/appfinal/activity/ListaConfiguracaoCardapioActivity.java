@@ -1,39 +1,36 @@
 package com.fernandopaiva.appfinal.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.fernandopaiva.appfinal.R;
+import com.fernandopaiva.appfinal.adapter.ItemCardapioAdapter;
 import com.fernandopaiva.appfinal.model.ItemCardapio;
 import com.fernandopaiva.appfinal.service.ApiService;
 import com.fernandopaiva.appfinal.service.RetrofitClient;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ListaConfiguracaoCardapioActivity extends AppCompatActivity {
-    private EditText edtTituloPrato, edtDescricaoPrato, filtrarPratosEditText;
+    private EditText edtTituloPrato;
+    private EditText edtDescricaoPrato;
     private Spinner spinnerTipoPrato;
     private Button btnAdicionarPrato;
+    private EditText filtrarPratosEditText;
     private ListView listaPratos;
-    private ArrayAdapter<ItemCardapio> adapter;
-    private List<ItemCardapio> itemCardapioList = new ArrayList<>();
+    private List<ItemCardapio> itemCardapioList;
+    private ItemCardapioAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState); // Corrigido aqui
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_configuracao_cardapio);
 
         edtTituloPrato = findViewById(R.id.edtTituloPrato);
@@ -43,18 +40,20 @@ public class ListaConfiguracaoCardapioActivity extends AppCompatActivity {
         filtrarPratosEditText = findViewById(R.id.filtrarPratosEditText);
         listaPratos = findViewById(R.id.listaPratos);
 
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, itemCardapioList);
+        setupBottomNavigation();
+
+        itemCardapioList = new ArrayList<>();
+        adapter = new ItemCardapioAdapter(this, itemCardapioList);
         listaPratos.setAdapter(adapter);
 
         btnAdicionarPrato.setOnClickListener(v -> {
             String titulo = edtTituloPrato.getText().toString();
             String descricao = edtDescricaoPrato.getText().toString();
             String tipo = spinnerTipoPrato.getSelectedItem().toString();
-            ItemCardapio novoItem = new ItemCardapio(0, titulo, descricao, tipo);
-            adicionarItemCardapio(novoItem);
+            adicionarItemCardapio(new ItemCardapio(0, titulo, descricao, tipo));
         });
 
-        filtrarPratosEditText.addTextChangedListener(new TextWatcher() {
+        filtrarPratosEditText.addTextChangedListener(new android.text.TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
@@ -64,10 +63,18 @@ public class ListaConfiguracaoCardapioActivity extends AppCompatActivity {
             }
 
             @Override
-            public void afterTextChanged(Editable s) {}
+            public void afterTextChanged(android.text.Editable s) {}
         });
 
         loadItemCardapio();
+    }
+
+    private void setupBottomNavigation() {
+        findViewById(R.id.btnTodosFeedbacks).setOnClickListener(v -> startActivity(new Intent(this, ListaFeedbackActivity.class)));
+        findViewById(R.id.btnFeedbacksPendentes).setOnClickListener(v -> startActivity(new Intent(this, ListaFeedbackPendenteActivity.class)));
+        findViewById(R.id.btnListaAfazeres).setOnClickListener(v -> startActivity(new Intent(this, ListaAfazeresActivity.class)));
+        findViewById(R.id.btnConfiguracaoCardapio).setOnClickListener(v -> startActivity(new Intent(this, ListaConfiguracaoCardapioActivity.class)));
+        findViewById(R.id.btnHome).setOnClickListener(v -> startActivity(new Intent(this, MainActivity.class)));
     }
 
     private void adicionarItemCardapio(ItemCardapio novoItem) {
@@ -101,6 +108,7 @@ public class ListaConfiguracaoCardapioActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<ItemCardapio>> call, Response<List<ItemCardapio>> response) {
                 if (response.isSuccessful()) {
+                    itemCardapioList.clear();
                     itemCardapioList.addAll(response.body());
                     adapter.notifyDataSetChanged();
                 }
@@ -113,15 +121,13 @@ public class ListaConfiguracaoCardapioActivity extends AppCompatActivity {
         });
     }
 
-    private void filtrarPratos(String query) {
+    private void filtrarPratos(String texto) {
         List<ItemCardapio> filteredList = new ArrayList<>();
         for (ItemCardapio item : itemCardapioList) {
-            if (item.getTitulo().toLowerCase().contains(query.toLowerCase())) {
+            if (item.getTitulo().toLowerCase().contains(texto.toLowerCase())) {
                 filteredList.add(item);
             }
         }
-        adapter.clear();
-        adapter.addAll(filteredList);
-        adapter.notifyDataSetChanged();
+        adapter.updateList(filteredList);
     }
 }
