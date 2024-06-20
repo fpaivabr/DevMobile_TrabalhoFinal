@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     android:padding="16dp">
 
     <TextView
@@ -11,7 +11,8 @@
         android:layout_height="wrap_content"
         android:text="Configuração Cardápio"
         android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textColor="#000000" />
 
     <!-- Formulário para adicionar prato -->
     <TextView
@@ -20,32 +21,41 @@
         android:text="Adicionar Prato"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="16dp"
+        android:textColor="#000000" />
 
     <EditText
         android:id="@+id/edtTituloPrato"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Título do Prato" />
+        android:hint="Título do Prato"
+        android:textColor="#000000"
+        android:background="#FFFFFF" />
 
     <EditText
         android:id="@+id/edtDescricaoPrato"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Descrição do Prato" />
+        android:hint="Descrição do Prato"
+        android:textColor="#000000"
+        android:background="#FFFFFF" />
 
     <Spinner
         android:id="@+id/spinnerTipoPrato"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:entries="@array/tipos_prato" />
+        android:entries="@array/tipos_prato"
+        android:textColor="#000000"
+        android:background="#FFFFFF" />
 
     <Button
         android:id="@+id/btnAdicionarPrato"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Adicionar" />
+        android:text="Adicionar"
+        android:background="#D1948D"
+        android:textColor="#FFFFFF" />
 
     <!-- Campo para filtrar pratos -->
     <EditText
@@ -53,10 +63,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:hint="Filtrar pelo título do prato" />
+        android:hint="Filtrar pelo título do prato"
+        android:textColor="#000000"
+        android:background="#FFFFFF" />
 
     <!-- ListView para mostrar pratos -->
-
     <ListView
         android:id="@+id/listaPratos"
         android:layout_width="match_parent"

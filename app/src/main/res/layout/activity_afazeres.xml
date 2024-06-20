@@ -1,6 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     android:padding="16dp">
 
     <TextView
@@ -9,7 +10,8 @@
         android:layout_height="wrap_content"
         android:text="Título da Atividade"
         android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textColor="#000000" />
 
     <TextView
         android:id="@+id/txtFeedbackRelacionado"
@@ -17,7 +19,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/txtTituloAtividade"
         android:layout_marginTop="16dp"
-        android:text="Feedback Relacionado" />
+        android:text="Feedback Relacionado"
+        android:textColor="#000000" />
 
     <TextView
         android:id="@+id/txtDescricaoAtividade"
@@ -25,7 +28,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/txtFeedbackRelacionado"
         android:layout_marginTop="16dp"
-        android:text="Descrição da Atividade" />
+        android:text="Descrição da Atividade"
+        android:textColor="#000000" />
 
     <EditText
         android:id="@+id/edtAcao"
@@ -33,7 +37,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/txtDescricaoAtividade"
         android:layout_marginTop="16dp"
-        android:hint="Descreva a ação realizada" />
+        android:hint="Descreva a ação realizada"
+        android:textColor="#000000"
+        android:background="#FFFFFF" />
 
     <Button
         android:id="@+id/btnVoltar"
@@ -42,7 +48,9 @@
         android:layout_below="@id/edtAcao"
         android:layout_marginTop="16dp"
         android:layout_alignParentStart="true"
-        android:text="Voltar" />
+        android:text="Voltar"
+        android:background="#D1948D"
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/btnSalvarAcao"
@@ -51,7 +59,9 @@
         android:layout_below="@id/edtAcao"
         android:layout_marginTop="16dp"
         android:layout_alignParentEnd="true"
-        android:text="Salvar Ação" />
+        android:text="Salvar Ação"
+        android:background="#D1948D"
+        android:textColor="#FFFFFF" />
 
     <include
         layout="@layout/barra_navegacao_inferior"

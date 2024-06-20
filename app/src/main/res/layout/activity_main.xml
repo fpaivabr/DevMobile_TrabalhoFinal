@@ -1,9 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".activity.MainActivity">
+
+    <ImageView
+        android:id="@+id/logoImageViewMain"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_logo" />
 
     <TextView
         android:id="@+id/txtBemVindo"
@@ -12,7 +20,9 @@
         android:text="Bem vindo(a), xxxxx!"
         android:textSize="24sp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"/>
+        android:layout_below="@id/logoImageViewMain"
+        android:layout_marginTop="32dp"
+        android:textColor="#000000"/>
 
     <TextView
         android:id="@+id/txtSelecioneOpcao"
@@ -20,12 +30,15 @@
         android:layout_height="wrap_content"
         android:text="Selecione abaixo a opção desejada:"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"/>
+        android:layout_below="@id/txtBemVindo"
+        android:layout_marginTop="16dp"
+        android:textColor="#000000"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:layout_below="@id/txtSelecioneOpcao"
         android:layout_marginTop="32dp"
         android:layout_marginLeft="32dp"
         android:layout_marginRight="32dp">
@@ -34,28 +47,36 @@
             android:id="@+id/btnTodosFeedbacks"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Todos Feedbacks"/>
+            android:text="Todos Feedbacks"
+            android:background="#D92E26"
+            android:textColor="#FFFFFF"/>
 
         <Button
             android:id="@+id/btnFeedbacksPendentes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Feedbacks Pendentes"
-            android:layout_marginTop="16dp"/>
+            android:layout_marginTop="16dp"
+            android:background="#D92E26"
+            android:textColor="#FFFFFF"/>
 
         <Button
             android:id="@+id/btnListaAfazeres"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Lista de Afazeres" />
+            android:text="Lista de Afazeres"
+            android:background="#D92E26"
+            android:textColor="#FFFFFF" />
 
         <Button
             android:id="@+id/btnConfiguracaoCardapio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Configuração Cardápio"
-            android:layout_marginTop="16dp"/>
+            android:layout_marginTop="16dp"
+            android:background="#D92E26"
+            android:textColor="#FFFFFF"/>
     </LinearLayout>
 
     <TextView
@@ -64,7 +85,6 @@
         android:layout_height="wrap_content"
         android:text="Sair"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="400dp"
-        android:textColor="@android:color/holo_red_dark"/>
-
+        android:layout_marginTop="600dp"
+        android:textColor="#004A6D"/>
 </RelativeLayout>

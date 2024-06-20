@@ -1,6 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     android:padding="16dp">
 
     <TextView
@@ -9,7 +10,8 @@
         android:layout_height="wrap_content"
         android:text="Título do Feedback"
         android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textColor="#000000" />
 
     <TextView
         android:id="@+id/txtTituloCardapio"
@@ -18,7 +20,8 @@
         android:layout_below="@id/txtTituloFeedback"
         android:layout_marginTop="8dp"
         android:text="Título do Cardápio"
-        android:textStyle="italic" />
+        android:textStyle="italic"
+        android:textColor="#000000" />
 
     <TextView
         android:id="@+id/txtDescricaoFeedback"
@@ -26,7 +29,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/txtTituloCardapio"
         android:layout_marginTop="16dp"
-        android:text="Descrição do Feedback" />
+        android:text="Descrição do Feedback"
+        android:textColor="#000000" />
 
     <Button
         android:id="@+id/btnVoltar"
@@ -35,12 +39,13 @@
         android:layout_below="@id/txtDescricaoFeedback"
         android:layout_marginTop="16dp"
         android:layout_alignParentStart="true"
-        android:text="Voltar" />
+        android:text="Voltar"
+        android:background="#D1948D"
+        android:textColor="#FFFFFF" />
 
     <include
         layout="@layout/barra_navegacao_inferior"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" />
-
 </RelativeLayout>
