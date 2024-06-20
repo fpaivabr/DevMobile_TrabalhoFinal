@@ -3,12 +3,16 @@ package com.fernandopaiva.appfinal.service;
 import com.fernandopaiva.appfinal.model.Feedback;
 import com.fernandopaiva.appfinal.model.Atividade;
 import com.fernandopaiva.appfinal.model.ItemCardapio;
+import com.fernandopaiva.appfinal.model.Usuario;
+
 import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.PUT;
 import retrofit2.http.POST;
+import retrofit2.http.DELETE;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
@@ -33,4 +37,13 @@ public interface ApiService {
 
     @GET("/itemcardapio")
     Call<List<ItemCardapio>> getItemCardapio();
+
+    @POST("/usuarios")
+    Call<Usuario> createUsuario(@Body Usuario usuario);
+
+    @GET("/usuarios/{loginUsuario}")
+    Call<Usuario> getUsuario(@Path("loginUsuario") String loginUsuario);
+
+    @DELETE("/usuarios/{loginUsuario}")
+    Call<Void> deleteUsuario(@Path("loginUsuario") String loginUsuario);
 }

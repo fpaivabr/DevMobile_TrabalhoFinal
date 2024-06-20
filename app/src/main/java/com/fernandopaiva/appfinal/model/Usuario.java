@@ -1,64 +1,59 @@
 package com.fernandopaiva.appfinal.model;
 
-import java.io.Serializable;
+public class Usuario {
+    private String loginUsuario;
+    private String nome;
+    private String sobrenome;
+    private String descricao;
+    private String senha;
 
-public class Usuario implements Serializable {
-    private Long idUsuario;
-    private String nomeUsuario;
-    private String sobrenomeUsuario;
-    private String descricaoUsuario;
-    private String senhaUsuario;
-
-    // Construtores
-    public Usuario() {}
-
-    public Usuario(Long idUsuario, String nomeUsuario, String sobrenomeUsuario, String descricaoUsuario, String senhaUsuario) {
-        this.idUsuario = idUsuario;
-        this.nomeUsuario = nomeUsuario;
-        this.sobrenomeUsuario = sobrenomeUsuario;
-        this.descricaoUsuario = descricaoUsuario;
-        this.senhaUsuario = senhaUsuario;
+    // Construtor
+    public Usuario(String loginUsuario, String nome, String sobrenome, String descricao, String senha) {
+        this.loginUsuario = loginUsuario;
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.descricao = descricao;
+        this.senha = senha;
     }
 
     // Getters e Setters
-    public Long getIdUsuario() {
-        return idUsuario;
+    public String getLoginUsuario() {
+        return loginUsuario;
     }
 
-    public void setIdUsuario(Long idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setLoginUsuario(String loginUsuario) {
+        this.loginUsuario = loginUsuario;
     }
 
-    public String getNomeUsuario() {
-        return nomeUsuario;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNomeUsuario(String nomeUsuario) {
-        this.nomeUsuario = nomeUsuario;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public String getSobrenomeUsuario() {
-        return sobrenomeUsuario;
+    public String getSobrenome() {
+        return sobrenome;
     }
 
-    public void setSobrenomeUsuario(String sobrenomeUsuario) {
-        this.sobrenomeUsuario = sobrenomeUsuario;
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
     }
 
-    public String getDescricaoUsuario() {
-        return descricaoUsuario;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setDescricaoUsuario(String descricaoUsuario) {
-        this.descricaoUsuario = descricaoUsuario;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
-    public String getSenhaUsuario() {
-        return senhaUsuario;
+    public String getSenha() {
+        return senha;
     }
 
-    public void setSenhaUsuario(String senhaUsuario) {
-        this.senhaUsuario = senhaUsuario;
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 }
-

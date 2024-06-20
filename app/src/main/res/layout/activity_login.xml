@@ -13,11 +13,11 @@
         android:src="@drawable/ic_logo" />
 
     <EditText
-        android:id="@+id/edtLogin"
+        android:id="@+id/edtLoginUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/logoImageView"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:hint="login"
         android:textColor="#000000"
         android:background="#FFFFFF" />
@@ -26,7 +26,7 @@
         android:id="@+id/edtSenha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/edtLogin"
+        android:layout_below="@id/edtLoginUsuario"
         android:layout_marginTop="16dp"
         android:hint="senha"
         android:inputType="textPassword"
